@@ -1,0 +1,179 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Lucy Hotel — luxury design system.
+ * Palette: Deep Navy, Champagne Beige, Elegant Gold, Alabaster.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-cream: var(--cream);
+  --color-charcoal: var(--charcoal);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Jost", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  /* Sharp, editorial geometric corners */
+  --radius: 0.125rem;
+
+  /* Global luxury backgrounds and text */
+  --background: #FAFAFA;
+  --foreground: #1E252D;
+
+  --card: #FFFFFF;
+  --card-foreground: #1E252D;
+  --popover: #FFFFFF;
+  --popover-foreground: #1E252D;
+
+  /* Primary Deep Navy */
+  --primary: #0F2A43;
+  --primary-foreground: #F3E9D2;
+
+  /* Secondary Champagne Beige */
+  --secondary: #F3E9D2;
+  --secondary-foreground: #0F2A43;
+
+  /* System supports */
+  --muted: #F5EFE2;
+  --muted-foreground: #5C6672;
+
+  /* Accent Elegant Gold */
+  --accent: #C9A227;
+  --accent-foreground: #0F2A43;
+
+  --gold: #C9A227;
+  --gold-foreground: #0F2A43;
+  --cream: #F3E9D2;
+  --charcoal: #1E252D;
+
+  --destructive: #A32A2A;
+  --destructive-foreground: #FAFAFA;
+
+  /* Muted Soft Taupe Borders */
+  --border: #E2D6BC;
+  --input: #E2D6BC;
+  --ring: #C9A227;
+
+  --sidebar: #0F2A43;
+  --sidebar-foreground: #F3E9D2;
+  --sidebar-primary: #C9A227;
+  --sidebar-primary-foreground: #0F2A43;
+  --sidebar-accent: #193D5E;
+  --sidebar-accent-foreground: #F3E9D2;
+  --sidebar-border: #1F496F;
+  --sidebar-ring: #C9A227;
+}
+
+.dark {
+  /* Luxury Dark Mode - Deep Navy shadows & Gold accents */
+  --background: #071522;
+  --foreground: #F3E9D2;
+  --card: #0F2A43;
+  --card-foreground: #F3E9D2;
+  --popover: #0F2A43;
+  --popover-foreground: #F3E9D2;
+  --primary: #F3E9D2;
+  --primary-foreground: #0F2A43;
+  --secondary: #1B3B59;
+  --secondary-foreground: #F3E9D2;
+  --muted: #1B3B59;
+  --muted-foreground: #A1B3C4;
+  --accent: #C9A227;
+  --accent-foreground: #0F2A43;
+  --gold: #C9A227;
+  --gold-foreground: #0F2A43;
+  --cream: #1B3B59;
+  --charcoal: #FAFAFA;
+  --border: rgba(226, 214, 188, 0.15);
+  --input: rgba(226, 214, 188, 0.15);
+  --ring: #C9A227;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+  }
+}
+
+@utility container-lux {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1.5rem;
+}
+
+.gold-line {
+  width: 3.5rem;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+@keyframes lux-fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: lux-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
